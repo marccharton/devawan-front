@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Devawan</title>
+	    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+	    <link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css" integrity="sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="/lib/prism-live/prism-live.css">
+		<link rel="stylesheet" href="/css/main.css">
+        
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js" integrity="sha256-YZQM6/hLBZYkb01VYf17isoQM4qpaOP+aX96hhYrWhg=" crossorigin="anonymous"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/components/prism-javascript.min.js" integrity="sha256-g87nhVlyWjKmsk1hSfvqjr22ILWlzX/0LtHFXkLB6IU=" crossorigin="anonymous"></script>
+		<script defer src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+		<!--<script defer src="lib/bliss/bliss.shy.min.js"></script>-->
+		<script defer src="/lib/prism-live/src/prism-live.js?load=css,html,javascript"></script>
+		<!--<script defer src="js/exerciseList.js"></script>-->
+		<script defer src="/js/app.js"></script>
+	</head>
+	<body>
+		
+		<% if(typeof isAdminMode === 'undefined' || isAdminMode === false) { %>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<% } else { %>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<% } %>
+			<a class="navbar-brand" href="/">Devawan</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarColor03">
+			    <ul class="navbar-nav mr-auto">
+				  	<li class="nav-item">
+					  	<a class="nav-link" href="/">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/category">Catégories</a>
+					</li>
+					<% if(user) { %>
+						<li class="nav-item">
+							<a class="nav-link" href="/profile">Mon compte</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/logout">Déconnexion</a>
+						</li>
+						<% if(user.role == "admin") { %>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin">Admin</a>
+							</li>
+						<% } %>
+					<% } else {%>
+						<li class="nav-item">
+							<a class="nav-link" href="/signup">S'inscrire</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/login">Se connecter</a>
+						</li>
+					<% } %>
+				</ul>
+
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="text" placeholder="Search">
+					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
+
+        <main class="container">

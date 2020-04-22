@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+    <section class="exercise__container grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "masonry" }'>
+        <% for (let exercice of exerciseList) { %>
+            <article class="exercise grid-item">
+                <div class="exercise__title"><%= exercice.name %></div>
+                <div class="exercise__content">
+                    <div class="exercise__description"><%= exercice.description %></div>
+                    <div class="exercise__correction exercise__correction--hidden">
+                        <pre class=" language-javascript"><code class="language-javascript"><%= exercice.correction %></code></pre>
+                    </div>
+                </div>
+            </article>
+        <% } %>
+    </section>
+
+<%- include('partials/footer') %>
